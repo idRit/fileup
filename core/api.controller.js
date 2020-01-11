@@ -24,11 +24,7 @@ exports.fileUpload = async (req, res, relPath) => {
         res.end();
     }
 
-    // we'll files "nowhere"
-    //let filePath = '/dev/null';
-    // could use a real path instead, e.g.
     let filePath = path.join(relPath, fileId);
-    console.log(filePath);
 
     debug("onUpload fileId: ", fileId);
 
