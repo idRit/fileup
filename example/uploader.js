@@ -10,7 +10,7 @@ class Uploader {
     }
   
     async getUploadedBytes() {
-      let response = await fetch('status', {
+      let response = await fetch('/core/api/fileStatus', {
         headers: {
           'X-File-Id': this.fileId
         }
@@ -29,7 +29,7 @@ class Uploader {
       this.startByte = await this.getUploadedBytes();
   
       let xhr = this.xhr = new XMLHttpRequest();
-      xhr.open("POST", "upload", true);
+      xhr.open("POST", "/core/api/fileUpload", true);
   
       // send file id, so that the server knows which file to resume
       xhr.setRequestHeader('X-File-Id', this.fileId);
